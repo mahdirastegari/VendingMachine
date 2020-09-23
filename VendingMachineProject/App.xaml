@@ -1,0 +1,37 @@
+<Application x:Class="VendingMachineProject.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:VendingMachineProject" StartupUri="MainWindow.xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" d1p1:Ignorable="d" xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- Material Design -->
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+
+            </ResourceDictionary.MergedDictionaries>
+            <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:VendingMachineProject.ViewModel" />
+            <local:VisibilityToVisibilityConverter x:Key="VisibilityConverter" />
+
+            <local:MultiBooleanToVisibilityConverter x:Key="HiddenIfANDTrue" TriggerValue="True" IsHidden="True" LogicFunction="AND"/>
+            <local:MultiBooleanToVisibilityConverter x:Key="HiddenIfANDFalse" TriggerValue="False" IsHidden="True" LogicFunction="AND"/>
+            <local:MultiBooleanToVisibilityConverter x:Key="CollapsedIfANDTrue" TriggerValue="True" IsHidden="False" LogicFunction="AND"/>
+            <local:MultiBooleanToVisibilityConverter x:Key="CollapsedIfANDFalse" TriggerValue="False" IsHidden="False" LogicFunction="AND"/>
+
+            <local:MultiBooleanToVisibilityConverter x:Key="HiddenIfORTrue" TriggerValue="True" IsHidden="True" LogicFunction="OR"/>
+            <local:MultiBooleanToVisibilityConverter x:Key="HiddenIfORFalse" TriggerValue="False" IsHidden="True" LogicFunction="OR"/>
+            <local:MultiBooleanToVisibilityConverter x:Key="CollapsedIfORTrue" TriggerValue="True" IsHidden="False" LogicFunction="OR"/>
+            <local:MultiBooleanToVisibilityConverter x:Key="CollapsedIfORFalse" TriggerValue="False" IsHidden="False" LogicFunction="OR"/>
+
+
+            <local:MultiBooleanConverter x:Key="InputOR" IsInvert="False" LogicFunction="OR"/>
+            <local:MultiBooleanConverter x:Key="InputAND" IsInvert="False" LogicFunction="AND"/>
+
+            <local:MultiBooleanConverter x:Key="InputORInvert" IsInvert="True" LogicFunction="OR"/>
+            <local:MultiBooleanConverter x:Key="InputANDInvert" IsInvert="True" LogicFunction="AND"/>
+
+            <local:NotOperation x:Key="InverseBoolean"  />
+            <local:EnumToBooleanConverter x:Key="EnumToBooleanConverter" IsReverse="False" />
+            <local:EnumToBooleanConverter x:Key="EnumToBooleanReverseConverter" IsReverse="True" />
+
+            <local:EnumToVisibilityConverter x:Key="EnumToVisibilityConverter" IsReverse="False" />
+            <local:EnumToVisibilityConverter x:Key="EnumToVisibilityReverseConverter" IsReverse="True" />
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
